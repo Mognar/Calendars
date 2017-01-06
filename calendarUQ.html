@@ -27,8 +27,8 @@ body {
 .RdYlGn .q10-11{fill:rgb(0,104,55)}
 </style>
 <body>
-<div style="text-align:center; font-size:20px"> Urgent Questions since 22/06/2009 </div>
-<script src="http://d3js.org/d3.v4.min.js"></script>
+<div style="text-align:center; font-size:20px"> EDMS since 18/05/2010 </div>
+<script src="https://d3js.org/d3.v4.min.js"></script>
 <script>
 var width = 1280,
     height = 136,
@@ -36,7 +36,7 @@ var width = 1280,
 var percent = d3.format("0.01%"),
     format = d3.timeFormat("%Y-%m-%d");
 var color = d3.scaleQuantize()
-    .domain([-3,3])
+    .domain([-4,60])
     .range(d3.range(11).map(function(d) { return "q" + d + "-11"; }));
 var svg = d3.select("body").selectAll("svg")
     .data(d3.range(2009, 2017))
@@ -66,7 +66,7 @@ svg.selectAll(".month")
   .enter().append("path")
     .attr("class", "month")
     .attr("d", monthPath);
-d3.csv("https://raw.githubusercontent.com/Mognar/taxviz/master/Uqs.csv", function(error, csv) {
+d3.csv("https://raw.githubusercontent.com/Mognar/Calendars/master/EDMcalendar.csv", function(error, csv) {
   if (error) throw error;
     var data = d3.nest()
     .key(function(d) { return d.Date; })
